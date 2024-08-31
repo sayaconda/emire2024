@@ -20,17 +20,27 @@ export function middleware(req: NextRequest) {
       console.log(
         'basicAuthある',
         basicAuth,
-        'authValue',
+        '\nauthValue',
         authValue,
-        'user',
+        '\nuser',
         user,
-        'pwd',
-        pwd
+        '\npwd',
+        pwd,
+        '\nBASIC_ID:',
+        process.env.BASIC_ID,
+        '\nBASIC_PWD:',
+        process.env.BASIC_PWD,
+        '\nIDがイコール',
+        user === process.env.BASIC_ID,
+        '\nPWDがイコール',
+        pwd === process.env.BASIC_PWD
       );
-      console.log('BASIC_ID:', process.env.BASIC_ID);
-      console.log('BASIC_PWD:', process.env.BASIC_PWD);
 
       if (user === process.env.BASIC_ID && pwd === process.env.BASIC_PWD) {
+        console.log(
+          'イコール',
+          user === process.env.BASIC_ID && pwd === process.env.BASIC_PWD
+        );
         return NextResponse.next();
       }
     }
