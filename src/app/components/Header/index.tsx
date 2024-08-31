@@ -7,7 +7,6 @@ type Props = {
 };
 
 const Header = ({ scrollToSection }: Props): JSX.Element => {
-  console.log('headerArray', headerArray);
   return (
     <div className="fixed top-0 w-full bg-white-gradient z-10">
       <div className="py-6 px-8 flex justify-between alignItems mx-auto max-w-screen-xl">
