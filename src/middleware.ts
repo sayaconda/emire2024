@@ -5,14 +5,14 @@ export const config = {
 };
 
 export function middleware(req: NextRequest) {
-  const isProdDevelopment = process.env.NODE_ENV === 'production';
-
   // if (isLocalDevelopment || !process.env.BASIC_ID || !process.env.BASIC_PWD) {
   //   return NextResponse.next();
   // }
 
   try {
-    if (!isProdDevelopment) return;
+    const isProd = process.env.NODE_ENV === 'production';
+    console.log('isProd', isProd);
+    if (!isProd) return;
     const basicAuth = req.headers.get('authorization');
     if (basicAuth) {
       const authValue = basicAuth.split(' ')[1];
