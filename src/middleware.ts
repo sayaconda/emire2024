@@ -42,6 +42,4 @@ export function middleware(req: NextRequest) {
     console.error('Basic Authentication Error:', e); // Added for debugging
     return new Response('Invalid Authentication', { status: 400 });
   }
-
-  return new Response('Unauthorized', { status: 401 });
 }
