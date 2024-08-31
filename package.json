@@ -10,11 +10,14 @@
   },
   "dependencies": {
     "@vanilla-extract/css": "^1.15.3",
+    "@vercel/edge": "^1.1.2",
+    "basic-auth": "^2.0.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.30",
     "next": "14.2.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "static-auth": "^2.1.2"
   },
   "devDependencies": {
     "@types/node": "^20",
