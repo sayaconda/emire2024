@@ -27,6 +27,9 @@ export function middleware(req: NextRequest) {
         'pwd',
         pwd
       );
+      console.log('BASIC_ID:', process.env.BASIC_ID);
+      console.log('BASIC_PWD:', process.env.BASIC_PWD);
+
       if (user === process.env.BASIC_ID && pwd === process.env.BASIC_PWD) {
         return NextResponse.next();
       }
