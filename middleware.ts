@@ -1,29 +1,25 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { next } from '@vercel/edge';
 
 export const config = {
-  matcher: '/(.*)',
+  matcher: '/',
 };
 
-export function middleware(req: NextRequest) {
-  try {
-    const authHeader = req.headers.get('authorization');
-    if (authHeader) {
-      console.log('authHeader', authHeader);
-      const basicAuth = authHeader.split(' ')[1];
-      const [user, password] = atob(basicAuth).toString().split(':');
-      console.log('user', user, 'pw', password, 'env', process.env);
+export default function middleware(request: Request) {
+  const authorizationHeader = request.headers.get('authorization');
 
-      if (user === process.env.BASIC_ID && password === process.env.BASIC_PW) {
-        return NextResponse.next();
-      }
-      return new Response('Basic Auth required', {
-        status: 401,
-        headers: {
-          'WWW-Authenticate': 'Basic realm="Secure Area"',
-        },
-      });
+  if (authorizationHeader) {
+    const basicAuth = authorizationHeader.split(' ')[1];
+    const [user, password] = atob(basicAuth).toString().split(':');
+
+    if (user === process.env.BASIC_ID && password === process.env.BASIC_PW) {
+      return next();
     }
-  } catch (e) {
-    return new Response('Invalid Auth', { status: 400 });
   }
+
+  return new Response('Basic Auth required', {
+    status: 401,
+    headers: {
+      'WWW-Authenticate': 'Basic realm="Secure Area"',
+    },
+  });
 }
