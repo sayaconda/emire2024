@@ -7,11 +7,12 @@ export const config = {
 export function middleware(req: NextRequest) {
   const isLocalDevelopment = process.env.NODE_ENV === 'development';
 
-  if (isLocalDevelopment || !process.env.BASIC_ID || !process.env.BASIC_PWD) {
-    return NextResponse.next();
-  }
+  // if (isLocalDevelopment || !process.env.BASIC_ID || !process.env.BASIC_PWD) {
+  //   return NextResponse.next();
+  // }
 
   const basicAuth = req.headers.get('authorization');
+  console.log('basicAuth', basicAuth);
   if (!basicAuth) {
     return new Response('Authentication required', {
       status: 401,
