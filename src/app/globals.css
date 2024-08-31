@@ -2,7 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+.underline-title::before {
+  @apply block content-[''] h-[2px] w-28 bg-accent-gradient mx-auto mb-[-2rem];
+}
+
+.custom-border {
+  border-image: linear-gradient(to left top, #cdaf7b, #d8bb8f, #e5d4a9, #e8d4a5)
+    1;
+}
+
+.text-gradient {
+  @apply bg-accent-gradient bg-clip-text text-transparent;
+}
+
+.modal {
+  @apply fixed w-4/5 h-4/5 top-0 left-0 right-0 bottom-0 m-auto py-6 pl-16 pr-10 bg-default rounded-2xl z-30;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.modal::-webkit-scrollbar {
+  /* Chrome, Safari 対応 */
+  display: none;
+}
+.modal-overlay {
+  @apply fixed w-full h-full top-0 left-0 bg-overlay z-20;
+}
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -30,4 +57,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */

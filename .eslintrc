@@ -1,0 +1,69 @@
+{
+  "extends": ["next", "next/core-web-vitals", "prettier"],
+  "plugins": ["import", "unused-imports"],
+  "ignorePatterns": ["generated/"],
+  "rules": {
+    // import 順の整列
+    "import/order": [
+      "error",
+      {
+        // グループごとの並び順
+        "groups": [
+          "builtin", // 1. node built-in modules
+          "external", // 2. npm install した packages
+          "internal", // 3. webpack などでパス設定した modules
+          ["parent", "sibling"], // 4. 親階層と小階層の files
+          "type", // 5. type imports
+          "index" // 6. 同階層の files
+        ],
+        // グループごとに改行を入れる
+        "newlines-between": "always",
+        // アルファベット順に整列・大文字小文字を区別しない
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        // パターンマッチしたものをグループにする
+        "pathGroups": [
+          // `generated`, React 関連を builtin より前に
+          {
+            "pattern": "{generated/**,react}",
+            "group": "builtin",
+            "position": "before"
+          },
+          // Next.js 関連を builtin より後に
+          {
+            "pattern": "next/**",
+            "group": "builtin",
+            "position": "after"
+          },
+          // `@/components`, `@/features/`, `@/functional`, `@/pages` の import をグルーピングして internal の前に
+          {
+            "pattern": "{@/components/**,@/features/**,@/functional/**,@/pages/**}",
+            "group": "internal",
+            "position": "before"
+          },
+          // vanilla-extract を一番最後に
+          {
+            "pattern": "./**.css.ts",
+            "group": "index",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"]
+      }
+    ],
+    // import 波括弧内のソート
+    "sort-imports": [
+      "error",
+      {
+        "allowSeparatedGroups": true,
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+      }
+    ],
+    // 使用していない import の自動削除
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "@next/next/no-img-element": "off"
+  }
+}
