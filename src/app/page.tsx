@@ -14,8 +14,6 @@ import Staff from '@/app/components/Staff';
 import Technique from '@/app/components/Technique';
 import { SectionType } from '@/app/utils/consts';
 
-
-
 export default function Home() {
   const refreshRef = useRef(null);
   const conceptRef = useRef(null);
@@ -59,7 +57,6 @@ export default function Home() {
     }
 
     if (sectionRef.current) {
-      console.log('呼ばれてる？');
       sectionRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, []);
