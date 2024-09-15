@@ -7,7 +7,7 @@ type Props = {
 const LegalModal = ({ setIsOpenLegalModal }: Props): JSX.Element => {
   return (
     <>
-      <div className="modal relative flex flex-col justify-items-center items-center">
+      <div className="modal relative flex flex-col justify-center items-center">
         <div className="flex justify-end w-full mb-2 md:mb-0 md:absolute md:top-6 md:right-6 w-6">
           <button
             className="rotate-45 scale-150"

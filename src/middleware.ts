@@ -7,7 +7,6 @@ export const config = {
 export function middleware(req: NextRequest) {
   try {
     const isProd = process.env.NODE_ENV === 'production';
-    console.log('isProd', isProd);
     if (!isProd) return;
     const basicAuth = req.headers.get('authorization');
     if (basicAuth) {

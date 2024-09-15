@@ -98,7 +98,7 @@ const Commitment = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
                 </span>
                 <span className="flex-1 break-words">
                   脳を休めるための音楽を厳選し、空間に広がる香りで音楽・香り
-                  ドーパミンの分泌を促し眠りを誘います
+                  ドーパミンの分泌を促し眠りを誘います。
                 </span>
               </li>
             </motion.div>

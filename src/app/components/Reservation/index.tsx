@@ -24,12 +24,10 @@ const Reservation = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
         transition={{ ...transition, delay: 0.5 }}
       >
         <div className="mb-10 md:mb-20 text-center">
-          <p className="text-5xl mb-2 font-bold">
-            {headers.Reservation.enTitle}
-          </p>
+          <p className="text-5xl mb-2 font-bold">{headers.Flow.enTitle}</p>
           <p className="text-base text-text-primary">
             <span>―</span>
-            <span className="px-3">{headers.Reservation.jaTitle}</span>
+            <span className="px-3">{headers.Flow.jaTitle}</span>
             <span>―</span>
           </p>
         </div>

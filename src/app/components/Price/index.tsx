@@ -29,7 +29,7 @@ const Price = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
     },
     {
       name: '人気No1',
-      desc: '脳内をリフレッシュ\nオーダーメイドで組み合わせます。\n「眼精疲労」「疲れが取れない」「頭が重い」など不調がある方におすすめです',
+      desc: '脳内をリフレッシュ\nオーダーメイドで組み合わせます。\n「眼精疲労」「疲れが取れない」「頭が重い」など\n不調がある方におすすめです',
       img: '/option_2.jpeg',
       menu: '炭酸ヘッドマッサージ',
       contents: ['カウンセリング', 'リンパマッサージ', 'ヘッドマッサージ'],
@@ -67,9 +67,10 @@ const Price = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
               <span className="px-3">{headers.Price.jaTitle}</span>
               <span>―</span>
             </p>
-            <p className="text-2xl">
+            <p className="mb-3 text-2xl">
               マインドフルネス{!isPc && <br />}脳ドライヘッドスパ
             </p>
+            <span className="font-sm">※料金は税抜き表記です。</span>
           </div>
         </motion.div>
         <div className="flex flex-col md:grid md:grid-cols-2 gap-x-8 gap-y-12">
@@ -88,7 +89,11 @@ const Price = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
                     <p className="relative underline-title mb-8 text-xl text-text-primary text-center">
                       {element.name}
                     </p>
-                    <p className="mb-3 md:h-20 text-center whitespace-pre-wrap">
+                    <p
+                      className={`mb-3 h-auto ${
+                        i == 2 ? 'md:h-auto' : 'md:h-24'
+                      } text-center whitespace-pre-wrap`}
+                    >
                       {element.desc}
                     </p>
                     <div className="relative block w-full h-auto mb-4">

@@ -18,10 +18,10 @@ export const headers = {
     jaTitle: '料金',
   },
   Staff: {
-    enTitle: 'Staff',
+    enTitle: 'Salon Staff',
     jaTitle: 'スタッフ',
   },
-  Reservation: {
+  Flow: {
     enTitle: 'Flow',
     jaTitle: '予約の流れ',
   },

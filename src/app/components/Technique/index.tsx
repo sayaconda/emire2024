@@ -122,7 +122,7 @@ const Technique = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
                 {lists.map((list, i) => (
                   <div
                     key={i}
-                    className={`absolute flex items-center justify-center w-24 h-24 md:w-36 md:h-36 rounded-full text-center text-sm font-bold ${list.bg}`}
+                    className={`absolute flex items-center justify-center w-24 h-24 md:w-36 md:h-36 rounded-full text-center text-2xl font-bold ${list.bg}`}
                     style={{
                       top: list.top,
                       right: list.right,

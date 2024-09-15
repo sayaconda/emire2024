@@ -1,5 +1,4 @@
 'use client';
-// import { useMediaQuery } from '@mui/material';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import Access from '@/app/components/Access';
@@ -59,10 +58,10 @@ export default function Home() {
       case 'Price':
         sectionRef = priceRef;
         break;
-      case 'Staff':
+      case 'Salon Staff' as 'Staff':
         sectionRef = staffRef;
         break;
-      case 'Reservation':
+      case 'Flow':
         sectionRef = reservationRef;
         break;
       case 'Access':
@@ -73,6 +72,7 @@ export default function Home() {
     }
 
     if (sectionRef.current) {
+      console.log('sectionRef.current', sectionRef.current);
       sectionRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, []);
