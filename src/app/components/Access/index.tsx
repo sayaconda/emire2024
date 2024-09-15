@@ -1,7 +1,6 @@
 import { forwardRef } from 'react';
 import { useState } from 'react';
 
-
 import Image from 'next/image';
 
 import { motion } from 'framer-motion';
@@ -102,9 +101,9 @@ const Access = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
                 <p>
                   <span>150-0011</span>
                   <span>東京都渋谷区東3-12-12</span>
-                  <p className="text-sm">
+                  <span className="block text-sm">
                     プライベートサロンの為詳細は、 ご予約の際にお伝えします。
-                  </p>
+                  </span>
                 </p>
               </div>
               <div className="flex gap-8 mb-5">

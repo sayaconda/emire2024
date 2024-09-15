@@ -1,6 +1,6 @@
 'use client';
 // import { useMediaQuery } from '@mui/material';
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import Access from '@/app/components/Access';
 import Footer from '@/app/components/Footer';
@@ -16,6 +16,7 @@ import { SectionType } from '@/app/utils/consts';
 import Commitment from './components/Commitment';
 
 export default function Home() {
+  const [isPc, setIsPc] = useState<boolean>(true);
   const commitmentRef = useRef(null);
   const refreshRef = useRef(null);
   const techniqueRef = useRef(null);
@@ -25,7 +26,19 @@ export default function Home() {
   const accessRef = useRef(null);
   const topRef = useRef(null);
 
-  const isPc = window.matchMedia('(min-width: 1028px)').matches;
+  useEffect(() => {
+    // クライアントサイドでのみ実行される
+    const mediaQuery = window.matchMedia('(min-width: 1028px)');
+    setIsPc(mediaQuery.matches);
+
+    const handleResize = () => setIsPc(mediaQuery.matches);
+    mediaQuery.addEventListener('change', handleResize);
+
+    // クリーンアップ処理
+    return () => {
+      mediaQuery.removeEventListener('change', handleResize);
+    };
+  }, []);
 
   const scrollToSection = useCallback((section: SectionType) => {
     let sectionRef: React.MutableRefObject<HTMLElement | null>;
