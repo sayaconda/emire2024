@@ -11,9 +11,13 @@ import {
   variants,
 } from '@/app/utils/consts';
 
-const Staff = forwardRef<HTMLDivElement, {}>((_, ref) => {
+type Props = {
+  isPc: boolean;
+};
+
+const Staff = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
   return (
-    <section ref={ref} className="bg-sub py-20 px-40">
+    <section ref={ref} className="py-8 px-4 md:py-20 md:px-40">
       <div className="mx-auto max-w-screen-xl">
         <motion.div
           initial="hidden"
@@ -23,7 +27,7 @@ const Staff = forwardRef<HTMLDivElement, {}>((_, ref) => {
           transition={{ ...transition, delay: 0.5 }}
         >
           <div className="mb-10 text-center">
-            <p className="text-3xl mb-2 font-bold">{headers.Staff.enTitle}</p>
+            <p className="text-5xl mb-2 font-bold">{headers.Staff.enTitle}</p>
             <p className="text-base text-text-primary">
               <span>―</span>
               <span className="px-3">{headers.Staff.jaTitle}</span>
@@ -31,7 +35,7 @@ const Staff = forwardRef<HTMLDivElement, {}>((_, ref) => {
             </p>
           </div>
         </motion.div>
-        <div className="flex justify-center gap-20">
+        <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-20">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -65,17 +69,25 @@ const Staff = forwardRef<HTMLDivElement, {}>((_, ref) => {
               <p className="mb-6 text-lg">
                 <span>代表</span>手洗　理沙
               </p>
-              <p className="mb-3">これまで年間500名以上のお客様を施術した。</p>
-              <p className="mb-3">「現代を働く全ての人々サポートしたい。」</p>
-              <p className="mb-3">
-                ここに来たら、笑顔でリスタートきるという意味を込めて
-                <br />
-                ドライヘッスパemireをOPENすることにしました。
+              <p className="mb-8">
+                これまで年間500名以上のお客様を施術しました。
               </p>
-              <p className="mb-3">
-                プライベート空間だからこそできるとを追求し一人一人に
+              <p className="mb-8">
+                脳疲労が回復すると「判断力・思考力・集中録・意欲力・記憶力」
                 <br />
-                寄りそったオールハンドのライヘッスパ専門店です。
+                の向上が期待できマインドフルネス脳に導きます。
+              </p>
+              <p className="mb-8">
+                「現代を働く全ての人々をサポートしたい。」
+                <br />
+                ここに来たら、笑顔でリスタートできるという意味を込めて
+                <br />
+                ドライヘッドスパemireをOPENすることにしました。
+              </p>
+              <p className="mb-8">
+                プライベート空間だからこそできることを追求し一人一人に
+                <br />
+                寄りそったオールハンドのドライヘッドスパ専門店です。
               </p>
             </div>
           </motion.div>

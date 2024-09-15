@@ -1,17 +1,17 @@
 import Image from 'next/image';
-
 import { headerArray, headers, SectionType } from '@/app/utils/consts';
 
 type Props = {
   scrollToSection: (section: SectionType) => void;
+  isPc: boolean;
 };
 
 const Header = ({ scrollToSection }: Props): JSX.Element => {
   return (
     <div className="fixed top-0 w-full bg-white-gradient z-10">
-      <div className="py-6 px-8 flex justify-between alignItems mx-auto max-w-screen-xl">
+      <div className="py-6 px-8 flex justify-between alignItems mx-auto w-full md:max-w-screen-xl">
         <div
-          className="relative block w-[200px] h-auto md:w-[100px] cursor-pointer hover:opacity-60"
+          className="relative block h-auto w-[100px] cursor-pointer hover:opacity-60"
           onClick={() => scrollToSection('Top')}
         >
           <Image
@@ -22,7 +22,7 @@ const Header = ({ scrollToSection }: Props): JSX.Element => {
             priority
           />
         </div>
-        <div className="flex gap-x-4">
+        <div className="hidden md:flex gap-x-4">
           {headerArray.map((header, i) => (
             <div
               key={i}

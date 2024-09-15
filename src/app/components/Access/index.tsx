@@ -1,4 +1,8 @@
 import { forwardRef } from 'react';
+import { useState } from 'react';
+
+import LegalModal from '../LegalModal';
+import PolicyModal from '../PolicyModal';
 
 import Image from 'next/image';
 
@@ -18,7 +22,12 @@ import {
  * LINE
  * SEE: https://icon-icons.com/ja/%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3/%E3%83%A9%E3%82%A4%E3%83%B3/66976
  */
-const Access = forwardRef<HTMLDivElement, {}>((_, ref) => {
+
+type Props = {
+  isPc: boolean;
+};
+
+const Access = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
   const medias = [
     {
       icon: '/sns_line.svg',
@@ -31,8 +40,17 @@ const Access = forwardRef<HTMLDivElement, {}>((_, ref) => {
       link: 'https://www.instagram.com/headspa2024?igsh=OXB4aWR5YXFpazBr&utm_source=qr',
     },
   ];
+  const [isOpenLegalModal, setIsOpenLegalModal] = useState<boolean>(false);
+  const [isOpenPolicyModal, setIsOpenPolicyModal] = useState<boolean>(false);
+  const openLegalModal = () => {
+    setIsOpenLegalModal(true);
+  };
+  const openPolicyModal = () => {
+    setIsOpenPolicyModal(true);
+  };
+
   return (
-    <section ref={ref} className="bg-sub py-20 px-40">
+    <section ref={ref} className="py-8 px-4 md:py-20 md:px-40">
       <div className="mx-auto max-w-screen-xl">
         <motion.div
           initial="hidden"
@@ -42,7 +60,7 @@ const Access = forwardRef<HTMLDivElement, {}>((_, ref) => {
           transition={{ ...transition, delay: 0.5 }}
         >
           <div className="mb-10 text-center">
-            <p className="text-3xl mb-2 font-bold">{headers.Access.enTitle}</p>
+            <p className="text-5xl mb-2 font-bold">{headers.Access.enTitle}</p>
             <p className="text-base text-text-primary">
               <span>―</span>
               <span className="px-3">{headers.Access.jaTitle}</span>
@@ -50,7 +68,7 @@ const Access = forwardRef<HTMLDivElement, {}>((_, ref) => {
             </p>
           </div>
         </motion.div>
-        <div className="grid grid-cols-2 gap-8">
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -60,7 +78,7 @@ const Access = forwardRef<HTMLDivElement, {}>((_, ref) => {
           >
             <div>
               <div className="flex">
-                <div className="relative bloc mb-5 kw-[200px] h-auto md:w-[200px]">
+                <div className="relative mb-5 h-auto hidden md:block md:w-[200px]">
                   <Image
                     src="/logo_large.png"
                     alt="emire"
@@ -71,35 +89,50 @@ const Access = forwardRef<HTMLDivElement, {}>((_, ref) => {
                 </div>
               </div>
               <div className="flex gap-8 mb-5">
-                <p className="mr-4 w-20 font-bold">Access</p>
+                <p className="w-6 h-6 font-bold">
+                  <Image
+                    src="/map.svg"
+                    alt="map"
+                    className="object-contain !relative w-3 h-3 !max-w-full"
+                    fill
+                    priority
+                  />
+                </p>
                 <p>
                   <span>150-0011</span>
                   <span>東京都渋谷区東3-12-12</span>
+                  <p className="text-sm">
+                    プライベートサロンの為詳細は、 ご予約の際にお伝えします。
+                  </p>
                 </p>
               </div>
               <div className="flex gap-8 mb-5">
-                <p className="mr-4 w-20 font-bold">Tel</p>
+                <p className="w-6 h-6 font-bold">
+                  <Image
+                    src="/phone.svg"
+                    alt="phone"
+                    className="object-contain !relative w-3 h-3 !max-w-full"
+                    fill
+                    priority
+                  />
+                </p>
                 <a href="tel:+81-080-4007-4656">080-4007-4656</a>
               </div>
               <div className="flex gap-8 mb-5">
-                <p className="mr-4 w-20 font-bold">Mail</p>
+                <p className="w-6 h-6 font-bold">
+                  <Image
+                    src="/mail.svg"
+                    alt="mail"
+                    className="object-contain !relative w-3 h-3 !max-w-full"
+                    fill
+                    priority
+                  />
+                </p>
                 <a href="mailto:dhs.emire.2024@gmail.com">
                   dhs.emire.2024@gmail.com
                 </a>
               </div>
               <div className="flex gap-8 mb-5">
-                <p className="mr-4 w-20 font-bold">Open</p>
-                <div>
-                  <p>［月～水］ 20 時～21 時</p>
-                  <p>［木～土］ 11 時～20 時</p>
-                  <p className="mb-3">［定休日］祝日・日曜日 </p>
-                  <p className="text-sm">
-                    出張も承っております。 ご相談ください。
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-8">
-                <p className="mr-4 w-20 font-bold">Follow us</p>
                 <div className="flex gap-2">
                   {medias.map((media, i) => (
                     <button key={i}>
@@ -111,8 +144,8 @@ const Access = forwardRef<HTMLDivElement, {}>((_, ref) => {
                         <p
                           className={`relative block h-auto ${
                             i === 0
-                              ? 'w-[50px] md:w-[30px] '
-                              : 'w-[40px] md:w-[22px] '
+                              ? 'w-[40px] md:w-[30px] '
+                              : 'w-[30px] md:w-[22px] '
                           }`}
                         >
                           <Image
@@ -128,6 +161,16 @@ const Access = forwardRef<HTMLDivElement, {}>((_, ref) => {
                   ))}
                 </div>
               </div>
+              <div className="flex gap-8 mb-5">
+                <div>
+                  <p>［月～水］ 20 時～22 時</p>
+                  <p>［木～土］ 11 時～20 時</p>
+                  <p className="mb-3">［定休日］木曜日 </p>
+                  <p className="text-sm">
+                    出張も承っております。 <br /> LINEにてご相談ください。
+                  </p>
+                </div>
+              </div>
             </div>
           </motion.div>
           <motion.div
@@ -137,16 +180,42 @@ const Access = forwardRef<HTMLDivElement, {}>((_, ref) => {
             viewport={{ once: true }}
             transition={{ ...transition, delay: 0.7 }}
           >
-            <div>
+            <div className="mb-8">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51873.2763720313!2d139.66931509223377!3d35.65040615538974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b421986ecc1%3A0xb04cf055a29719f4!2z44CSMTUwLTAwMTEg5p2x5Lqs6YO95riL6LC35Yy65p2x77yT5LiB55uu77yR77yS4oiS77yR77yS!5e0!3m2!1sja!2sjp!4v1723990089839!5m2!1sja!2sjp"
-                width="600"
-                height="450"
+                width={isPc ? '600' : '100%'}
+                height={isPc ? '450' : '225'}
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
+            </div>
+            <div>
+              <div>
+                <div className="mb-2">
+                  <p
+                    className="cursor-pointer hover:opacity-60"
+                    onClick={openLegalModal}
+                  >
+                    特定商取法に基づく表記
+                  </p>
+                  {isOpenLegalModal && (
+                    <LegalModal setIsOpenLegalModal={setIsOpenLegalModal} />
+                  )}
+                </div>
+                <div>
+                  <p
+                    className="cursor-pointer hover:opacity-60"
+                    onClick={openPolicyModal}
+                  >
+                    ドライヘッドスパに関する利用規約とキャンセルポリシー
+                  </p>
+                  {isOpenPolicyModal && (
+                    <PolicyModal setIsOpenPolicyModal={setIsOpenPolicyModal} />
+                  )}
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

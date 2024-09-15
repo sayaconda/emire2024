@@ -1,4 +1,3 @@
-
 import PlusIcon from '../Icon/Plus';
 
 type Props = {
@@ -9,7 +8,7 @@ const PolicyModal = ({ setIsOpenPolicyModal }: Props): JSX.Element => {
   return (
     <>
       <div className="modal">
-        <div className="flex justify-end w-full">
+        <div className="flex justify-end w-full mb-4 md:mb-0">
           <button
             className="rotate-45 scale-150"
             onClick={() => setIsOpenPolicyModal(false)}

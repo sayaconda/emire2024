@@ -1,13 +1,13 @@
 import { Transition, Variants } from 'framer-motion';
 
 export const headers = {
+  Commitment: {
+    enTitle: 'Commitment',
+    jaTitle: 'こだわり',
+  },
   Refresh: {
     enTitle: 'Refresh',
     jaTitle: 'リフレッシュ',
-  },
-  Concept: {
-    enTitle: 'Concept',
-    jaTitle: 'コンセプト',
   },
   Technique: {
     enTitle: 'Technique',
@@ -22,8 +22,8 @@ export const headers = {
     jaTitle: 'スタッフ',
   },
   Reservation: {
-    enTitle: 'Reservation',
-    jaTitle: 'ご予約',
+    enTitle: 'Flow',
+    jaTitle: '予約の流れ',
   },
   Access: {
     enTitle: 'Access',

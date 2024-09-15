@@ -2,8 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'ipaexm';
+  src: url('/fonts/ipaexm.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'ipaexm', sans-serif;
+}
+
+.underline-section::before {
+  @apply block content-[''] absolute left-0 bottom-0 h-[1px] w-full bg-accent-gradient mx-auto;
+}
 .underline-title::before {
-  @apply block content-[''] h-[2px] w-28 bg-accent-gradient mx-auto mb-[-2rem];
+  @apply block content-[''] absolute bottom-[-1rem] inset-x-0 m-auto h-[2px] w-28 bg-accent-gradient mx-auto;
 }
 
 .custom-border {
@@ -15,8 +29,21 @@
   @apply bg-accent-gradient bg-clip-text text-transparent;
 }
 
+.commit-box-blue::before {
+  @apply content-[''] absolute top-[-12px] left-[-16px] block pt-16 px-6 w-40 bg-box-blue rounded-full z-[-1];
+}
+.commit-box-pink::before {
+  @apply content-[''] absolute top-[-12px] left-[-16px] block pt-16 px-6 w-40 bg-box-pink rounded-full z-[-1];
+}
+.commit-box-green::before {
+  @apply content-[''] absolute top-[-12px] left-[-16px] block pt-16 px-6 w-40 bg-box-green rounded-full z-[-1];
+}
+.commit-box-purple::before {
+  @apply content-[''] absolute top-[-12px] left-[-16px] block pt-16 px-6 w-40 bg-box-purple rounded-full z-[-1];
+}
+
 .modal {
-  @apply fixed w-4/5 h-4/5 top-0 left-0 right-0 bottom-0 m-auto py-6 pl-16 pr-10 bg-default rounded-2xl z-30;
+  @apply fixed w-11/12 h-[95%] md:w-4/5 md:h-5/6 top-0 left-0 right-0 bottom-0 m-auto py-6 pl-2 md:pl-16 pr-2 md:pr-10 bg-default rounded-2xl z-30;
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -28,33 +55,3 @@
 .modal-overlay {
   @apply fixed w-full h-full top-0 left-0 bg-overlay z-20;
 }
-
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */

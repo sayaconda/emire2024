@@ -1,29 +1,19 @@
 import { useEffect, useState } from 'react';
-import { forwardRef } from 'react';
-
 import Image from 'next/image';
 
-import clsx from 'clsx';
+import { forwardRef } from 'react';
 
-const Kv = forwardRef<HTMLDivElement, {}>((_, ref) => {
+type Props = {
+  isPc: boolean;
+};
+
+const Kv = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
   const [visibleIndex, setVisibleIndex] = useState(0); // 表示する文字のインデックスを管理
-  const [currentIndex, setCurrentIndex] = useState(0); // 画像のインデックスを管理
   const [textVisible, setTextVisible] = useState(true); // テキストの表示状態を管理
 
   const names = ['e', 'm', 'i', 'r', 'e'];
-  const images = [
-    '/kv_1.jpeg',
-    '/kv_2.jpeg',
-    '/kv_3.jpeg',
-    '/kv_4.jpeg',
-    '/kv_5.jpeg',
-  ];
 
   useEffect(() => {
-    const imageInterval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // 画像は3秒ごとに切り替わる
-
     const textInterval = setInterval(() => {
       setVisibleIndex((prevIndex) => {
         if (prevIndex < names.length) {
@@ -44,32 +34,25 @@ const Kv = forwardRef<HTMLDivElement, {}>((_, ref) => {
 
     // コンポーネントがアンマウントされたときにインターバルとタイムアウトをクリア
     return () => {
-      clearInterval(imageInterval);
       clearInterval(textInterval);
       clearTimeout(hideTextTimeout);
     };
-  }, [images.length, names.length, visibleIndex]);
+  }, [names.length, visibleIndex]);
 
   return (
-    <div ref={ref} className="relative w-screen h-screen overflow-hidden">
-      {images.map((image, index) => (
-        <Image
-          key={index}
-          src={image}
-          alt={`emire kv ${index + 1}`}
-          className={clsx(
-            'absolute inset-0 object-cover transition-opacity duration-1000 ease-in-out',
-            {
-              'opacity-0': index !== currentIndex,
-              'opacity-100': index === currentIndex,
-            }
-          )}
-          layout="fill"
-          priority={index === currentIndex}
-        />
-      ))}
+    <div
+      ref={ref}
+      className="relative w-screen h-screen flex bg-default overflow-hidden"
+    >
+      <Image
+        src="/logo_large.png"
+        alt="emire"
+        className="object-contain !relative m-auto !max-w-full !w-2/4 !h-auto"
+        fill
+        priority
+      />
       <div>
-        <p
+        {/* <p
           className={clsx(
             'absolute inset-0 flex justify-center items-center text-8xl',
             'text-gradient transition-opacity duration-1000 ease-in-out',
@@ -102,7 +85,7 @@ const Kv = forwardRef<HTMLDivElement, {}>((_, ref) => {
           「冴える脳」を
           <br />
           働くあなたをサポート
-        </p>
+        </p> */}
       </div>
     </div>
   );

@@ -9,9 +9,13 @@ import {
   variants,
 } from '@/app/utils/consts';
 
-const Reservation = forwardRef<HTMLDivElement, {}>((_, ref) => {
+type Props = {
+  isPc: boolean;
+};
+
+const Reservation = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
   return (
-    <section ref={ref} className="py-20 px-40">
+    <section ref={ref} className="py-8 px-4 md:py-20 md:px-40">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -19,8 +23,8 @@ const Reservation = forwardRef<HTMLDivElement, {}>((_, ref) => {
         viewport={{ once: true }}
         transition={{ ...transition, delay: 0.5 }}
       >
-        <div className="mb-20 text-center">
-          <p className="text-3xl mb-2 font-bold">
+        <div className="mb-10 md:mb-20 text-center">
+          <p className="text-5xl mb-2 font-bold">
             {headers.Reservation.enTitle}
           </p>
           <p className="text-base text-text-primary">
@@ -38,11 +42,12 @@ const Reservation = forwardRef<HTMLDivElement, {}>((_, ref) => {
           viewport={{ once: true }}
           transition={{ ...transition, delay: 0.6 }}
         >
-          <p className="relative underline-title mb-6 text-lg">予約の流れ</p>
-          <p className="mb-24">
+          <p className="mb-12 md:mb-24">
             ご予約の際には、事前決済をお願いしており、決済完了後ご予約が確定となります。
             <br />
-            予約日までに、カルテ入力と同意書をごー読いただき十分理解した上でのご予約をお願いいたします。
+            予約日までに、カルテ入力と同意書をご一読いただき十分理解した上でのご予約をお願いいたします。
+            <br />
+            また、現金でお支払いを希望される際には、ラインにてご相談ください。
           </p>
         </motion.div>
         <motion.div
@@ -55,16 +60,21 @@ const Reservation = forwardRef<HTMLDivElement, {}>((_, ref) => {
           <p className="relative underline-title mb-6 text-lg">
             キャンセルポリシー
           </p>
-          <p className="mb-20">
+          <p className="mb-12 md:mb-20">
             万が一、日程の変更やキャンセルをされる際は、予約日の3日前までにご連絡ください。
             <br />
-            それ以降は、キャンセル料として¥3,000を頂戴し、費用については返金ではなく、
+            それ以降は、キャンセル料として¥3,000
+            を頂戴し、費用については返金ではなく、
             <br />
-            日程変更をお願いしております。当日キャンセルと無断キャンセルの場合は100％キャンセル料を頂戴することご了承ください。
+            日程変更をお願いしております。当日キャンセルと無断キャンセルの場合は{' '}
             <br />
-            回数券をご購入の方は、当日キャンセル・無断キャンセルは、1回分の消化としいかなる理由でも
+            100%キャンセル料を頂戴することご了承ください。
             <br />
-            有効期限の延長や返金手続きは致し兼ねます。回数券は購入日より6ヶ月間有効です。
+            回数券をご購入の方は、当日キャンセル・無断キャンセルは、1
+            回分の消化としいかなる理由でも
+            <br />
+            有効期限の延長や返金手続きは致し兼ねます。回数券は購入日より 6
+            ヶ月間有効です。
           </p>
         </motion.div>
       </div>
