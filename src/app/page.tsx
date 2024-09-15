@@ -12,6 +12,7 @@ import Reservation from '@/app/components/Reservation';
 import Staff from '@/app/components/Staff';
 import Technique from '@/app/components/Technique';
 import { SectionType } from '@/app/utils/consts';
+
 import Commitment from './components/Commitment';
 
 export default function Home() {

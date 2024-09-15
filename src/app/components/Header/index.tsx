@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import { headerArray, headers, SectionType } from '@/app/utils/consts';
 
 type Props = {

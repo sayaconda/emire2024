@@ -1,8 +1,6 @@
 import { forwardRef } from 'react';
 import { useState } from 'react';
 
-import LegalModal from '../LegalModal';
-import PolicyModal from '../PolicyModal';
 
 import Image from 'next/image';
 
@@ -14,6 +12,9 @@ import {
   transition,
   variants,
 } from '@/app/utils/consts';
+
+import LegalModal from '../LegalModal';
+import PolicyModal from '../PolicyModal';
 
 /**
  * sns iconダウンロード元

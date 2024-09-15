@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
+import { forwardRef } from 'react';
+
 import Image from 'next/image';
 
-import { forwardRef } from 'react';
 
 type Props = {
   isPc: boolean;
