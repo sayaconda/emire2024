@@ -67,8 +67,8 @@ const Price = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
               <span className="px-3">{headers.Price.jaTitle}</span>
               <span>―</span>
             </p>
-            <p className="mb-3 text-2xl">
-              マインドフルネス{!isPc && <br />}脳ドライヘッドスパ
+            <p className="mb-3 text-lg md:text-2xl">
+              マインドフルネス脳ドライヘッドスパ
             </p>
             <span className="font-sm">※料金は税抜き表記です。</span>
           </div>

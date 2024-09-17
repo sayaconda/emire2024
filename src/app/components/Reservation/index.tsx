@@ -23,7 +23,7 @@ const Reservation = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
         viewport={{ once: true }}
         transition={{ ...transition, delay: 0.5 }}
       >
-        <div className="mb-10 md:mb-20 text-center">
+        <div className="mb-10 text-center">
           <p className="text-5xl mb-2 font-bold">{headers.Flow.enTitle}</p>
           <p className="text-base text-text-primary">
             <span>―</span>
@@ -40,7 +40,7 @@ const Reservation = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
           viewport={{ once: true }}
           transition={{ ...transition, delay: 0.6 }}
         >
-          <p className="mb-12 md:mb-24">
+          <p className="mb-12 md:mb-24 text-left md:text-center">
             ご予約の際には、事前決済をお願いしており、決済完了後ご予約が確定となります。
             <br />
             予約日までに、カルテ入力と同意書をご一読いただき十分理解した上でのご予約をお願いいたします。
@@ -55,10 +55,10 @@ const Reservation = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
           viewport={{ once: true }}
           transition={{ ...transition, delay: 0.7 }}
         >
-          <p className="relative underline-title mb-6 text-lg">
+          <p className="relative underline-title mb-8 text-lg">
             キャンセルポリシー
           </p>
-          <p className="mb-12 md:mb-20">
+          <p className="mb-12 md:mb-20 text-left md:text-center">
             万が一、日程の変更やキャンセルをされる際は、予約日の3日前までにご連絡ください。
             <br />
             それ以降は、キャンセル料として¥3,000

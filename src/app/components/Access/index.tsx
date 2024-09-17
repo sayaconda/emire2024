@@ -13,6 +13,7 @@ import {
 } from '@/app/utils/consts';
 
 import LegalModal from '../LegalModal';
+import PersonalInfoModal from '../PersonalInfoModal';
 import PolicyModal from '../PolicyModal';
 
 /**
@@ -42,11 +43,17 @@ const Access = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
   ];
   const [isOpenLegalModal, setIsOpenLegalModal] = useState<boolean>(false);
   const [isOpenPolicyModal, setIsOpenPolicyModal] = useState<boolean>(false);
+  const [isOpenPersonalInfoModal, setIsOpenPersonalInfoModal] =
+    useState<boolean>(false);
+
   const openLegalModal = () => {
     setIsOpenLegalModal(true);
   };
   const openPolicyModal = () => {
     setIsOpenPolicyModal(true);
+  };
+  const openPersonalInfoModal = () => {
+    setIsOpenPersonalInfoModal(true);
   };
 
   return (
@@ -198,21 +205,34 @@ const Access = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
                     className="cursor-pointer hover:opacity-60"
                     onClick={openLegalModal}
                   >
-                    特定商取法に基づく表記
+                    利用規約
                   </p>
                   {isOpenLegalModal && (
                     <LegalModal setIsOpenLegalModal={setIsOpenLegalModal} />
                   )}
                 </div>
-                <div>
+                <div className="mb-2">
                   <p
                     className="cursor-pointer hover:opacity-60"
                     onClick={openPolicyModal}
                   >
-                    ドライヘッドスパに関する利用規約とキャンセルポリシー
+                    キャンセルポリシー
                   </p>
                   {isOpenPolicyModal && (
                     <PolicyModal setIsOpenPolicyModal={setIsOpenPolicyModal} />
+                  )}
+                </div>
+                <div>
+                  <p
+                    className="cursor-pointer hover:opacity-60"
+                    onClick={openPersonalInfoModal}
+                  >
+                    個人情報取扱
+                  </p>
+                  {isOpenPersonalInfoModal && (
+                    <PersonalInfoModal
+                      setIsOpenPersonalInfoModal={setIsOpenPersonalInfoModal}
+                    />
                   )}
                 </div>
               </div>

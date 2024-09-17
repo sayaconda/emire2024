@@ -84,7 +84,7 @@ const Refresh = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
             </p>
           </div>
         </motion.div>
-        <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-8 md:gap-16 md:items-end mb-10">
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-16 md:items-end mb-10">
           <div>
             <motion.div
               initial="hidden"

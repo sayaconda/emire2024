@@ -67,26 +67,29 @@ const Staff = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
           >
             <div>
               <p className="mb-6 text-lg">
-                <span>代表</span>手洗　理沙
+                <span>代表</span>　手洗 理沙
               </p>
-              <p className="mb-8">
+              <p
+                className="mb-8"
+                style={{ letterSpacing: !isPc ? '-0.09rem' : 'normal' }}
+              >
                 これまで年間500名以上のお客様を施術しました。
-              </p>
-              <p className="mb-8">
-                脳疲労が回復すると「判断力・思考力・集中録・意欲力・記憶力」
-                <br />
+                {isPc && <br />}
+                {isPc && <br />}
+                脳疲労が回復すると「判断力・思考力・集中力・意欲力・記憶力」
+                {isPc && <br />}
                 の向上が期待できマインドフルネス脳に導きます。
-              </p>
-              <p className="mb-8">
+                {isPc && <br />}
+                <br />
                 「現代を働く全ての人々をサポートしたい。」
-                <br />
+                {isPc && <br />}
                 ここに来たら、笑顔でリスタートできるという意味を込めて
-                <br />
+                {isPc && <br />}
                 ドライヘッドスパemireをOPENすることにしました。
-              </p>
-              <p className="mb-8">
+                {isPc && <br />}
+                {isPc && <br />}
                 プライベート空間だからこそできることを追求し一人一人に
-                <br />
+                {isPc && <br />}
                 寄りそったオールハンドのドライヘッドスパ専門店です。
               </p>
             </div>

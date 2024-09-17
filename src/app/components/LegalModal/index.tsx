@@ -16,7 +16,7 @@ const LegalModal = ({ setIsOpenLegalModal }: Props): JSX.Element => {
             <PlusIcon />
           </button>
         </div>
-        <div className="h-full md:h-auto">
+        <div className="h-full">
           <dl>
             <div className="flex flex-col md:flex-row mb-4">
               <dt className="mr-8 w-32">販売業社の名称</dt>

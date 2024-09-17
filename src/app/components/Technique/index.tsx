@@ -88,7 +88,7 @@ const Technique = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
               viewport={{ once: true }}
               transition={{ ...transition, delay: 0.6 }}
             >
-              <p className="text-2xl mb-6">
+              <p className="text-lg md:text-2xl mb-6">
                 頭部にある約50個のツボを刺激することで血液の巡りを良くし脳波をシータ派に向けることで睡眠を誘い脳疲労を回復させ脳本来のパフォーマンスを広げます。
               </p>
             </motion.div>
@@ -122,7 +122,7 @@ const Technique = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
                 {lists.map((list, i) => (
                   <div
                     key={i}
-                    className={`absolute flex items-center justify-center w-24 h-24 md:w-36 md:h-36 rounded-full text-center text-2xl font-bold ${list.bg}`}
+                    className={`absolute flex items-center justify-center w-24 h-24 md:w-36 md:h-36 rounded-full text-center text-xl font-bold ${list.bg}`}
                     style={{
                       top: list.top,
                       right: list.right,
@@ -146,9 +146,9 @@ const Technique = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
           transition={{ ...transition, delay: 0.8 }}
         >
           <p>
-            植物性幹細胞由来成分が配合した炭酸ローションとオールハンドマッサージの相乗効果で血行促進させ、
-            <br />
-            一人一人のお悩みに合わせメニューを組み合わせゆっくりとほぐします。
+            植物性幹細胞由来成分が配合した炭酸ローションとオールハンドマッサージの
+            {isPc && <br />}
+            相乗効果で血行促進させ、一人一人のお悩みに合わせメニューを組み合わせゆっくりとほぐします。
           </p>
         </motion.div>
       </div>
