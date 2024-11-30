@@ -106,8 +106,8 @@ const Access = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
                   />
                 </p>
                 <p>
-                  <span>150-0011</span>
-                  <span>東京都渋谷区東3-12-12</span>
+                  <span>140-0001</span>
+                  <span>東京都品川北品川1-21-2</span>
                   <span className="block text-sm">
                     プライベートサロンの為詳細は、 ご予約の際にお伝えします。
                   </span>

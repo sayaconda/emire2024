@@ -85,54 +85,76 @@ const Refresh = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
           </div>
         </motion.div>
         <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-16 md:items-end mb-10">
-          <div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={variants}
+            viewport={{ once: true }}
+            transition={{ ...transition, delay: 1 }}
+          >
+            <div className="md:flex md:items-start">
+              <div>
+                <p className="mb-2 md:mb-4 text-lg md:text-2xl">
+                  RE L’AMOUR
+                  <br />
+                  エキスパートローション
+                </p>
+                <div className="text-base">
+                  <p>
+                    6種類の植物性幹細胞由来成分が配合
+                    <br />
+                    炭酸濃度10,000ppmのパワーで
+                    <br />
+                    髪毛・頭皮にアプローチ
+                    <br />
+                    毛細血管を５倍まで栄養を届けます。
+                  </p>
+                </div>
+              </div>
+              <div className="mt-8 md:mt-0 md:flex-1 md:min-w-[200px]">
+                <Image
+                  src="/lotion.png"
+                  alt="エキスパートローション"
+                  className="object-contain !relative !max-w-full"
+                  fill
+                  priority
+                />
+              </div>
+            </div>
+          </motion.div>
+          <div className="relative block w-full h-full">
             <motion.div
               initial="hidden"
               whileInView="visible"
               variants={variants}
               viewport={{ once: true }}
-              transition={{ ...transition, delay: 1 }}
+              transition={{ ...transition, delay: 1.1 }}
             >
-              <p className="mb-2 md:mb-4 text-lg md:text-2xl">
-                RE L’AMOUR
-                <br />
-                エキスパートローション
-              </p>
-              <div className="text-base">
-                <p>
-                  6種類の植物性幹細胞由来成分が配合
-                  <br />
-                  炭酸濃度10,000ppmのパワーで
-                  <br />
-                  髪毛・頭皮にアプローチ
-                  <br />
-                  毛細血管を５倍まで栄養を届けます。
-                </p>
+              <div className="md:flex md:items-start">
+                <div>
+                  <p className="mb-2 md:mb-4 text-lg md:text-2xl">
+                    エキスパートマックスボディー
+                  </p>
+                  <div>
+                    <p>
+                      炭酸濃度20,000ppmのパワーで
+                      <br />
+                      分厚い脂肪やセルライトにアプローチ。 <br />
+                      脂肪燃焼効果抜群
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-8 md:mt-0 md:flex-1 md:min-w-[200px]">
+                  <Image
+                    src="/body.png"
+                    alt="エキスパートマックスボディー"
+                    className="object-contain !relative !max-w-full"
+                    fill
+                    priority
+                  />
+                </div>
               </div>
             </motion.div>
-          </div>
-          <div>
-            <div className="relative block w-full h-full">
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                variants={variants}
-                viewport={{ once: true }}
-                transition={{ ...transition, delay: 1.1 }}
-              >
-                <p className="mb-2 md:mb-4 text-lg md:text-2xl">
-                  エキスパートマックスボディー
-                </p>
-                <div>
-                  <p>
-                    炭酸濃度20,000ppmのパワーで
-                    <br />
-                    分厚い脂肪やセルライトにアプローチ。 <br />
-                    脂肪燃焼効果抜群
-                  </p>
-                </div>
-              </motion.div>
-            </div>
           </div>
         </div>
         <motion.div
@@ -155,17 +177,30 @@ const Refresh = forwardRef<HTMLDivElement, Props>(({ isPc }, ref) => {
               viewport={{ once: true }}
               transition={{ ...transition, delay: 1.3 }}
             >
-              <div className="mb-4">
-                <p className="mb-1 text-lg md:text-2xl">Recovery Blanket</p>
-                <span className="flex-1 break-words">―</span>
-                <span className="px-3 text-base md:text-lg">
-                  リカバリーブランケット
-                </span>
-                <span className="flex-1 break-words">―</span>
+              <div className="md:flex md:items-start">
+                <div>
+                  <div className="mb-4">
+                    <p className="mb-1 text-lg md:text-2xl">Recovery Blanket</p>
+                    <span className="flex-1 break-words">―</span>
+                    <span className="px-3 text-base md:text-lg">
+                      リカバリーブランケット
+                    </span>
+                    <span className="flex-1 break-words">―</span>
+                  </div>
+                  <p>
+                    身に纏うことで遠赤外線効果とオールハンドで揉み解すことで相乗効果となり『血の巡り」をより高めます。
+                  </p>
+                </div>
+                <div className="mt-8 md:mt-0 md:flex-1 md:min-w-[300px]">
+                  <Image
+                    src="/blanket.png"
+                    alt="リカバリーブランケット"
+                    className="object-contain !relative !max-w-full"
+                    fill
+                    priority
+                  />
+                </div>
               </div>
-              <p>
-                身に纏うことで遠赤外線効果とオールハンドで揉み解すことで相乗効果となり『血の巡り」をより高めます。
-              </p>
             </motion.div>
           </div>
         </div>
